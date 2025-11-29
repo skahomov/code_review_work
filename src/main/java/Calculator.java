@@ -71,5 +71,4 @@ public class Calculator {
     // и от разности чисел a и b
     public int solver(int a, int b, int n) {
         return div(times(n, add(a, b)), dif(a, b));
-    }
 }
