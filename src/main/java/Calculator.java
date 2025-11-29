@@ -1,14 +1,16 @@
 public class Calculator {
     //Реализована через операцию сложения
-    public int add(int a, int b){
+    public int add(int a, int b) {
         return a + b;
     }
+
     //Реализована через операцию вычитания
-    public int dif(int a, int b){
+    public int dif(int a, int b) {
         return b - a;
     }
+
     //Реализована Деления в столбик через встроенные операции
-    public int div(int a, int b){
+    public int div(int a, int b) {
         String out = "";
         if (b == 0) return Integer.MIN_VALUE;
         int flaga = 1;
@@ -30,8 +32,7 @@ public class Calculator {
             if (numForDel < b) {
                 if (!out.isEmpty() || numbers.length == 1) out += "0";
                 flag = 1;
-            }
-            else {
+            } else {
                 flag = 0;
                 int ammount = 0;
                 while (numForDel >= b) {
@@ -43,21 +44,20 @@ public class Calculator {
         }
         return Integer.parseInt(out) * flaga * flagb;
     }
+
     //Реализовано через базовые раннее написанный метод сложения и операцию умножения,
     //все случаи с изменением знака обрабатываются через if конструкции после чего мы a раз
     //складываем число b с самим собой
-    public int times(int a, int b){
+    public int times(int a, int b) {
         if (a == 0 || b == 0) return 0;
         int k = 1;
         if (a < 0 && b > 0) {
             k = -1;
             a *= k;
-        }
-        else if (a > 0 && b < 0) {
+        } else if (a > 0 && b < 0) {
             k = -1;
             b *= k;
-        }
-        else if (a < 0 && b < 0) {
+        } else if (a < 0 && b < 0) {
             a *= -1;
             b *= -1;
         }
@@ -66,10 +66,9 @@ public class Calculator {
         return out * k;
 
     }
-    //Реализация функции суммы первых 100 элементов бесконечной арифметической прогрессии, реализовано через
-    //написанные раннее функции
-    public int solver(Integer a1, Integer a100){
-        int n = 100;
-        return times(n, div(add(a1, a100), 2));
-    }
+
+    //Частное от арифметической прогрессии n элементов a и b
+    // и от разности чисел a и b
+    public int solver(int a, int b, int n) {
+        return div(times(n, add(a, b)), dif(a, b));
 }

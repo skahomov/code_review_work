@@ -86,19 +86,19 @@ class CalculatorTest {
         assertEquals(0, main.times(0, 10));
     }
     @Test
-    void testSolver1() {
-        assertEquals(5000, main.solver(1, 100));
+    void solver1() {
+        assertEquals(-200, main.solver(3, 1, 100));
     }
     @Test
-    void testSolver2() {
-        assertEquals(4400, main.solver(-1, 100));
+    void solver2() {
+        assertEquals(-100, main.solver(7, 3, 50));
     }
     @Test
-    void testSolver3() {
-        assertEquals(-5000, main.solver(-1, -100));
+    void solver3() {
+        assertEquals(1050, main.solver(11, 15, 200));
     }
     @Test
-    void testSolver4() {
-        assertEquals(-4400, main.solver(1, -100));
+    void solver4() {
+        assertEquals(2000, main.solver(60, 90, 500));
     }
 }
