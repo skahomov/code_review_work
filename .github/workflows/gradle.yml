@@ -21,11 +21,7 @@ jobs:
     strategy:
         matrix:
           os: [ubuntu-latest, macos-latest, windows-latest]
-          java: [11, 13, 17]
-          include:
-          - os: windows-latest
-            java: 13
-            distribution: 'zulu' # Альтернативный дистрибутив для Windows
+          java: [11, 17, 21]
     runs-on: ${{ matrix.os }}
     permissions:
       contents: read
@@ -70,12 +66,6 @@ jobs:
       with:
         java-version: '17'
         distribution: 'temurin'
-
-    # Явно указываем версию Gradle, совместимую с Java 17
-    - name: Setup Gradle 8.5+
-      uses: gradle/actions/setup-gradle@af1da67850ed9a4cedd57bfd976089dd991e2582
-      with:
-        gradle-version: '8.9'
 
     # Generates and submits a dependency graph, enabling Dependabot Alerts for all project dependencies.
     # See: https://github.com/gradle/actions/blob/main/dependency-submission/README.md
